@@ -75,6 +75,8 @@ Item {
         }
         scaleFactor: root.scaleFactor
         weatherStr: weatherSvc.weatherStr
+        userName: userHelper.currentItem ? userHelper.currentItem.uName : ""
+        sessionName: sessionHelper.currentItem ? sessionHelper.currentItem.sName : ""
         advExpanded: root.advExpanded
 
         onAdvExpandedChanged: root.advExpanded = actBtns.advExpanded
@@ -116,7 +118,7 @@ Item {
         id: userHelper
         model: typeof userModel !== "undefined" ? userModel : null
         currentIndex: 0
-        opacity: 0; width: 1; height: 1; z: -100; interactive: false
+        opacity: 0; width: 200; height: 200; z: -100; interactive: false
         delegate: Item { property string uName: model.name || "" }
     }
 
@@ -124,7 +126,7 @@ Item {
         id: sessionHelper
         model: typeof sessionModel !== "undefined" ? sessionModel : null
         currentIndex: 0
-        opacity: 0; width: 1; height: 1; z: -100; interactive: false
+        opacity: 0; width: 200; height: 200; z: -100; interactive: false
         delegate: Item { property string sName: model.name || "" }
     }
 
