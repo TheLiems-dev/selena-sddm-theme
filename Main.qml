@@ -61,6 +61,7 @@ Item {
 
         PasswordPanel {
             id: passwordPanel
+            anchors.horizontalCenter: parent.horizontalCenter
             scaleFactor: root.scaleFactor
             showLogin: root.showLogin
             onLoginRequested: login()
