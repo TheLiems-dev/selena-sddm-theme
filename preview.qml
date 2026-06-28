@@ -1,8 +1,9 @@
-import QtQuick 2.5
-import QtMultimedia 5.0
+import QtQuick
+import QtMultimedia
 import "components"
 
 Rectangle {
+    id: root
     width: 1280
     height: 720
     color: "#000000"
@@ -20,7 +21,7 @@ Rectangle {
         source: "background.mp4"
         videoOutput: video
         audioOutput: AudioOutput { volume: 0.0; muted: true }
-        loops: MediaPlayer.Infinite
+        loops: MediaPlayer.Loops.Infinite
         autoPlay: true
     }
 

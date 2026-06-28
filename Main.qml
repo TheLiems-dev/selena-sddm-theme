@@ -1,5 +1,5 @@
-import QtQuick 2.5
-import QtMultimedia 5.0
+import QtQuick
+import QtMultimedia
 import "components"
 
 Item {
@@ -21,7 +21,7 @@ Item {
         id: player
         source: "background.mp4"
         volume: 0.0; muted: true
-        loops: MediaPlayer.Infinite
+        loops: MediaPlayer.Loops.Infinite
         autoPlay: true
     }
 

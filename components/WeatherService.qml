@@ -1,4 +1,5 @@
-import QtQuick 2.5
+import QtQml
+import QtQuick
 
 QtObject {
     id: w
@@ -57,7 +58,7 @@ QtObject {
                 } catch(e) {}
             }
         }
-        locReq.open("GET", "http://ip-api.com/json/")
+        locReq.open("GET", "https://ip-api.com/json/")
         locReq.send()
     }
 }

@@ -1,4 +1,4 @@
-import QtQuick 2.5
+import QtQuick
 
 Column {
     id: panel
@@ -35,16 +35,7 @@ Column {
             font.pointSize: 15 * scaleFactor
             echoMode: showPwItem.showPw ? TextInput.Normal : TextInput.Password
             focus: true
-
-            property string placeholder: "Password"
-            Text {
-                anchors.verticalCenter: parent.verticalCenter
-                x: 0
-                text: parent.placeholder
-                color: "#666666"
-                font: parent.font
-                visible: parent.text === "" && !parent.activeFocus
-            }
+            placeholderText: "Password"
 
             Keys.onPressed: function(event) {
                 if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
@@ -57,8 +48,8 @@ Column {
                     event.accepted = true
                 }
                 if (event.key >= Qt.Key_A && event.key <= Qt.Key_Z && event.text.length > 0) {
-                    var shiftHeld = event.modifiers & Qt.ShiftModifier
-                    panel.capsLockOn = event.text === event.text.toUpperCase() && !shiftHeld
+                    var shiftHeld = (event.modifiers & Qt.ShiftModifier) !== 0
+                    panel.capsLockOn = (event.text === event.text.toUpperCase()) !== shiftHeld
                 }
             }
         }
