@@ -1,6 +1,6 @@
-import QtQuick
-import QtMultimedia
-import "./components"
+import QtQuick 2.5
+import QtMultimedia 5.0
+import "components"
 
 Rectangle {
     width: 1280

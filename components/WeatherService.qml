@@ -1,5 +1,4 @@
-import QtQml
-import QtQuick
+import QtQuick 2.5
 
 QtObject {
     id: w
