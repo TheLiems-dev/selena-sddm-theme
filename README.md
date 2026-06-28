@@ -17,16 +17,26 @@ Inspired by the Tokyo Night color palette — dark, sleek, and modern.
 
 ## Preview
 
-| Login Screen | Password Input | Advanced Menu |
-|:---:|:---:|:---:|
-| ![Login](https://via.placeholder.com/320x180/1a1b26/a9b1d6?text=Clock+%2B+Logo) | ![Password](https://via.placeholder.com/320x180/1a1b26/7aa2f7?text=Password+Field) | ![Advanced](https://via.placeholder.com/320x180/1a1b26/a9b1d6?text=Suspend+Reboot+Shutdown) |
+| Login Screen | Password Input |
+|:---:|:---:|
+| ![Login](preview-login.png) | ![Password](preview-password.png) |
+
+> ⚠️ **Screenshots above show the theme layout. Your actual login screen will look different because**
+> **a) you must provide your own background video, and b) weather data is fetched live from your location.**
+
+## ⚠️ Important: You Must Provide a Background Video
+
+This theme plays a **looping MP4 background video**. The video file is **not included in this repo** because:
+- Videos are very large (often 100–200 MB)
+- Everyone has different taste in backgrounds
+
+**You must supply your own `background.mp4`** after installation. See [Adding a Background Video](#adding-a-background-video) below.
 
 ## Requirements
 
 - **SDDM** (≥ 0.20 recommended)
 - **Qt6** (Qt 6.5+ recommended) or **Qt5** (adjust `QtVersion` in `Metadata.desktop`)
 - **Qt Multimedia** — for video playback (`qt6-multimedia` or `qt5-multimedia`)
-- **A background video** — you must provide your own `.mp4` file (not included in this repo)
 
 ## Installation
 
@@ -209,20 +219,30 @@ Current=selena" | sudo tee /etc/sddm.conf.d/theme.conf
 ## Adding a Background Video
 
 The theme plays `background.mp4` from its own directory.  
+**You must provide this file yourself — it is not included in the repo.**
+
 You can use **any MP4 video** — a game cutscene, an anime scene, a nature timelapse, etc.
 
 ```bash
 # Copy your video to the theme directory
 sudo cp /path/to/your/video.mp4 /usr/share/sddm/themes/selena/background.mp4
-
-# For best results:
-#   - Resolution: 1920×1080 or higher
-#   - Loops well (no abrupt cuts)
-#   - File size: keep under 200 MB for faster loading
-#   - No audio track (optional, the theme mutes it anyway)
 ```
 
-> **No video included in this repo.** You must provide your own `background.mp4`.
+### Video Tips
+
+| Guideline | Recommendation |
+|-----------|---------------|
+| Resolution | 1920×1080 or higher (matching your screen) |
+| Looping | Make sure it loops seamlessly (no abrupt cuts) |
+| File size | Keep under 200 MB for faster loading |
+| Audio | Not needed — the theme mutes audio. Re-encode without audio to save space |
+| Format | MP4 with H.264 encoding (widest compatibility) |
+
+### Example: Re-encode a video without audio
+
+```bash
+ffmpeg -i your_source.mp4 -c:v libx264 -preset medium -an background.mp4
+```
 
 ## Customization
 
