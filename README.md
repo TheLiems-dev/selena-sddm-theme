@@ -3,81 +3,86 @@
 An animated SDDM login theme featuring **Selena** from *Punishing: Gray Raven* / *Wuthering Waves* (Kuro Games).  
 Inspired by the Tokyo Night color palette — dark, sleek, and modern.
 
-## Features
+> 🌟 **Theme SDDM** có hình nền động, lấy cảm hứng từ Selena (Kuro Games) và bảng màu Tokyo Night.
 
-- **Animated background** — plays a looping background video (MP4) on the login screen
-- **Clock & date** — displayed in the top-left corner
-- **Weather & AQI** — auto-detects your location and shows current temperature + air quality index (via ip-api.com + Open-Meteo)
-- **User switching** — cycle through available users with a single click
-- **Session switching** — cycle through installed desktop sessions (niri, KDE, Hyprland, GNOME, etc.)
-- **Power actions** — Suspend, Reboot, Shutdown from the Advanced menu
-- **Password field** — "show password" toggle, Caps Lock indicator, shake animation on failed login
-- **Fully scalable** — adapts to any screen resolution
-- **Tokyo Night color palette** — easy to customize
+---
 
-## Preview
+## ⚠️ Important: You Must Provide a Background Video
+## ⚠️ Quan trọng: Bạn Phải Tự Cung Cấp Video Nền
 
-| Login Screen | Password Input |
+This theme plays a **looping MP4 background video**. The video file is **not included in this repo** — it's too large and everyone has different taste.
+
+> Theme này chạy **video MP4 nền**. File video **không có trong repo** vì dung lượng lớn và mỗi người thích một kiểu khác nhau.
+
+See [Adding a Background Video](#adding-a-background-video) below.  
+Xem [Thêm Video Nền](#thêm-video-nền) bên dưới.
+
+---
+
+## Preview / Xem Trước
+
+| Login Screen / Màn hình đăng nhập | Password Input / Nhập mật khẩu |
 |:---:|:---:|
 | ![Login](preview-login.png) | ![Password](preview-password.png) |
 
-> ⚠️ **Screenshots above show the theme layout. Your actual login screen will look different because**
-> **a) you must provide your own background video, and b) weather data is fetched live from your location.**
+> Screenshots show the layout. Your actual screen will differ with your own video + live weather.  
+> Ảnh chụp minh hoạ bố cục. Màn hình thực tế sẽ khác khi bạn thêm video + thời tiết tự động.
 
-## ⚠️ Important: You Must Provide a Background Video
+---
 
-This theme plays a **looping MP4 background video**. The video file is **not included in this repo** because:
-- Videos are very large (often 100–200 MB)
-- Everyone has different taste in backgrounds
+## Features / Tính năng
 
-**You must supply your own `background.mp4`** after installation. See [Adding a Background Video](#adding-a-background-video) below.
+| English | Tiếng Việt |
+|---------|-----------|
+| Animated MP4 background | Video nền MP4 động |
+| Clock & date (top-left) | Đồng hồ & ngày tháng (góc trên trái) |
+| Weather + AQI (auto-detect location) | Thời tiết + chỉ số AQI (tự động định vị) |
+| User switching (click to cycle) | Chuyển đổi người dùng (bấm để vòng qua) |
+| Session switching (niri, KDE, Hyprland, etc.) | Chuyển session (niri, KDE, Hyprland, v.v.) |
+| Power actions: Suspend, Reboot, Shutdown | Tác vụ nguồn: Tạm ngưng, Khởi động lại, Tắt máy |
+| Show password toggle + Caps Lock indicator | Nút hiện mật khẩu + chỉ báo Caps Lock |
+| Shake animation on failed login | Hiệu ứng rung khi sai mật khẩu |
+| Fully scalable (any resolution) | Tự động co giãn theo mọi độ phân giải |
+| Tokyo Night color palette | Bảng màu Tokyo Night |
 
-## Requirements
+---
 
-- **SDDM** (≥ 0.20 recommended)
-- **Qt6** (Qt 6.5+ recommended) or **Qt5** (adjust `QtVersion` in `Metadata.desktop`)
-- **Qt Multimedia** — for video playback (`qt6-multimedia` or `qt5-multimedia`)
+## Requirements / Yêu cầu
 
-## Installation
+| English | Tiếng Việt |
+|---------|-----------|
+| SDDM ≥ 0.20 | SDDM từ phiên bản 0.20 trở lên |
+| Qt6 (or Qt5 — adjust `Metadata.desktop`) | Qt6 (hoặc Qt5 — sửa `Metadata.desktop`) |
+| Qt Multimedia (`qt6-multimedia` or `qt5-multimedia`) | Qt Multimedia (gói `qt6-multimedia` hoặc `qt5-multimedia`) |
+| An MP4 background video (you provide) | File video MP4 nền (tự cung cấp) |
+
+---
+
+## Installation / Cài đặt
 
 ### Arch Linux / EndeavourOS / CachyOS / Manjaro
 
 ```bash
-# Install dependencies
+# Dependencies / Phụ thuộc
 sudo pacman -S sddm qt6-multimedia qt6-wayland
 
-# Clone the theme
+# Clone & install / Tải về & cài
 git clone https://github.com/TheLiems-dev/selena-sddm-theme.git /tmp/selena
 sudo cp -r /tmp/selena /usr/share/sddm/themes/selena
 rm -rf /tmp/selena
 
-# Add your background video
-# Place a file named "background.mp4" in /usr/share/sddm/themes/selena/
-
-# Set as current SDDM theme
+# Set as theme / Đặt làm theme mặc định
 echo "[Theme]
 Current=selena" | sudo tee /etc/sddm.conf.d/theme.conf
-
-# Or edit /etc/sddm.conf:
-#   [Theme]
-#   Current=selena
 ```
 
 ### Fedora / RHEL
 
 ```bash
-# Install dependencies
 sudo dnf install sddm qt6-qtmultimedia qt6-qtwayland
-
-# Clone and install
 git clone https://github.com/TheLiems-dev/selena-sddm-theme.git /tmp/selena
 sudo cp -r /tmp/selena /usr/share/sddm/themes/selena
 rm -rf /tmp/selena
-
-# Add your background video
-# Place "background.mp4" in /usr/share/sddm/themes/selena/
-
-# Set as theme
 echo "[Theme]
 Current=selena" | sudo tee /etc/sddm.conf.d/theme.conf
 ```
@@ -85,18 +90,10 @@ Current=selena" | sudo tee /etc/sddm.conf.d/theme.conf
 ### Debian / Ubuntu / Linux Mint
 
 ```bash
-# Install dependencies
 sudo apt install sddm qt6-multimedia qt6-wayland
-
-# Clone and install
 git clone https://github.com/TheLiems-dev/selena-sddm-theme.git /tmp/selena
 sudo cp -r /tmp/selena /usr/share/sddm/themes/selena
 rm -rf /tmp/selena
-
-# Add your background video
-# Place "background.mp4" in /usr/share/sddm/themes/selena/
-
-# Set as theme
 echo "[Theme]
 Current=selena" | sudo tee /etc/sddm.conf.d/theme.conf
 ```
@@ -104,23 +101,15 @@ Current=selena" | sudo tee /etc/sddm.conf.d/theme.conf
 ### openSUSE
 
 ```bash
-# Install dependencies
 sudo zypper install sddm qt6-multimedia qt6-wayland
-
-# Clone and install
 git clone https://github.com/TheLiems-dev/selena-sddm-theme.git /tmp/selena
 sudo cp -r /tmp/selena /usr/share/sddm/themes/selena
 rm -rf /tmp/selena
-
-# Add background video...
-# Place "background.mp4" in /usr/share/sddm/themes/selena/
-
-# Set as theme
 echo "[Theme]
 Current=selena" | sudo tee /etc/sddm.conf.d/theme.conf
 ```
 
-### Standalone / Independent Distros (Void Linux, Alpine, Artix, Gentoo, NixOS, etc.)
+### Standalone / Independent Distros / Các bản phân phối độc lập
 
 <details>
 <summary><b>Void Linux</b></summary>
@@ -130,7 +119,6 @@ sudo xbps-install -S sddm qt6-multimedia qt6-wayland
 git clone https://github.com/TheLiems-dev/selena-sddm-theme.git /tmp/selena
 sudo cp -r /tmp/selena /usr/share/sddm/themes/selena
 rm -rf /tmp/selena
-# Place background.mp4 in /usr/share/sddm/themes/selena/
 echo "[Theme]
 Current=selena" | sudo tee /etc/sddm.conf.d/theme.conf
 ```
@@ -140,7 +128,7 @@ Current=selena" | sudo tee /etc/sddm.conf.d/theme.conf
 <summary><b>Artix Linux (OpenRC / runit / s6)</b></summary>
 
 ```bash
-# Enable the SDDM daemon for your init:
+# Enable SDDM for your init:
 #   OpenRC:  sudo rc-update add sddm
 #   runit:   sudo ln -s /etc/runit/sv/sddm /run/runit/service/
 #   s6:      sudo s6-service-add default sddm
@@ -170,7 +158,7 @@ Current=selena" | sudo tee /etc/sddm.conf.d/theme.conf
 <details>
 <summary><b>NixOS</b></summary>
 
-In your `/etc/nixos/configuration.nix` or flake:
+In `/etc/nixos/configuration.nix` or your flake:
 
 ```nix
 { config, pkgs, ... }:
@@ -200,7 +188,7 @@ in {
 }
 ```
 
-Then rebuild: `sudo nixos-rebuild switch`
+Rebuild: `sudo nixos-rebuild switch`
 </details>
 
 <details>
@@ -216,109 +204,124 @@ Current=selena" | sudo tee /etc/sddm.conf.d/theme.conf
 ```
 </details>
 
-## Adding a Background Video
+---
+
+## Adding a Background Video / Thêm Video Nền
+
+**You must provide this file yourself — it is not included in the repo.**  
+**Bạn phải tự cung cấp file này — nó không có trong repo.**
 
 The theme plays `background.mp4` from its own directory.  
-**You must provide this file yourself — it is not included in the repo.**
-
-You can use **any MP4 video** — a game cutscene, an anime scene, a nature timelapse, etc.
+Theme sẽ chạy file `background.mp4` trong thư mục của nó.
 
 ```bash
-# Copy your video to the theme directory
+# Copy your video / Copy video của bạn vào
 sudo cp /path/to/your/video.mp4 /usr/share/sddm/themes/selena/background.mp4
 ```
 
-### Video Tips
+### Video Tips / Mẹo về Video
 
-| Guideline | Recommendation |
-|-----------|---------------|
-| Resolution | 1920×1080 or higher (matching your screen) |
-| Looping | Make sure it loops seamlessly (no abrupt cuts) |
-| File size | Keep under 200 MB for faster loading |
-| Audio | Not needed — the theme mutes audio. Re-encode without audio to save space |
-| Format | MP4 with H.264 encoding (widest compatibility) |
+| English | Tiếng Việt |
+|---------|-----------|
+| Resolution: 1920×1080 or higher | Độ phân giải: 1920×1080 hoặc cao hơn |
+| Loop seamlessly (no abrupt cuts) | Vòng lặp mượt (không bị cut đột ngột) |
+| Keep under 200 MB for faster loading | Giữ dưới 200 MB để load nhanh hơn |
+| Audio: not needed — theme mutes it | Âm thanh: không cần — theme đã tắt âm |
+| Format: MP4 with H.264 (widest support) | Định dạng: MP4 H.264 (tương thích nhất) |
 
-### Example: Re-encode a video without audio
+### Example: Re-encode without audio / Ví dụ: Nén lại không âm thanh
 
 ```bash
 ffmpeg -i your_source.mp4 -c:v libx264 -preset medium -an background.mp4
 ```
 
-## Customization
+---
 
-### Colors
+## Customization / Tuỳ chỉnh
 
-Colors are defined inline in `Main.qml`. Edit these values to match your preference:
+### Colors / Màu sắc
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| Background tint | `#1a1b26` | Tokyo Night base |
-| Text | `#a9b1d6` | Tokyo Night foreground |
-| Accent (focused) | `#7aa2f7` | Tokyo Night blue |
-| Error | `#f7768e` | Tokyo Night red |
-| Warning (Caps Lock) | `#e0af68` | Tokyo Night yellow |
-| Muted | `#565f89` | Tokyo Night comment |
+Edit these values in `Main.qml`.  
+Sửa các giá trị sau trong file `Main.qml`.
 
-### Layout
+| Variable | Default | Description / Mô tả |
+|----------|---------|---------------------|
+| Background tint | `#1a1b26` | Tokyo Night nền tối |
+| Text | `#a9b1d6` | Chữ màu xám nhạt |
+| Accent (focused) | `#7aa2f7` | Xanh dương (khi focus) |
+| Error | `#f7768e` | Đỏ (báo lỗi) |
+| Warning (Caps Lock) | `#e0af68` | Vàng (Caps Lock) |
+| Muted | `#565f89` | Xám (viền, chữ phụ) |
 
-- **Clock position**: adjust `topMargin` and `leftMargin` in `infoPanel`
-- **Bottom group (logo + password)**: adjust `bottomMargin` in `bottomGroup`
-- **Action buttons (top-right)**: adjust `topMargin` and `rightMargin` in the right column
+### Layout / Bố cục
 
-### Weather / AQI
+| What / Cái gì | Where to adjust / Sửa ở đâu |
+|---------------|---------------------------|
+| Clock position | `topMargin`, `leftMargin` in `infoPanel` |
+| Logo + password position | `bottomMargin` in `bottomGroup` |
+| Action buttons | `topMargin`, `rightMargin` in the right column |
 
-The theme fetches:
-1. Location via [ip-api.com](http://ip-api.com) (free, no key)
-2. Weather via [Open-Meteo](https://open-meteo.com) (free, no key)
-3. AQI via [Open-Meteo Air Quality API](https://open-meteo.com/en/docs/air-quality-api) (free, no key)
+### Weather / AQI / Thời tiết
 
-If any request fails, the weather display is hidden.
+Three free APIs, no key needed — location → weather → AQI.  
+Ba API miễn phí, không cần key — định vị → thời tiết → AQI.
 
-## Troubleshooting
+- [ip-api.com](http://ip-api.com) — location / định vị
+- [Open-Meteo](https://open-meteo.com) — weather / thời tiết
+- [Open-Meteo AQI](https://open-meteo.com/en/docs/air-quality-api) — air quality / chất lượng không khí
 
-### SDDM shows a blank / black screen
+---
 
-- Make sure `qt6-multimedia` is installed
-- Check if the video path in `Main.qml` line 22 matches your file
-- Try disabling the video temporarily: comment out lines 19–33 in `Main.qml`
-- Check SDDM logs: `journalctl -u sddm -e`
+## Troubleshooting / Khắc phục sự cố
 
-### Weather not showing
+### SDDM shows a blank screen / Màn hình đen
 
-- Ensure your system has internet access at the login screen
-- Check if `ip-api.com`, `api.open-meteo.com`, and `air-quality-api.open-meteo.com` are reachable
-- SDDM may block network requests on some distros — try adding firewall exceptions
+- Make sure `qt6-multimedia` is installed / Kiểm tra đã cài `qt6-multimedia`
+- Check video path in `Main.qml` line 22 / Kiểm tra đường dẫn video trong `Main.qml` dòng 22
+- Try disabling video: comment lines 19–33 in `Main.qml` / Thử tắt video: comment dòng 19–33 trong `Main.qml`
+- Check logs: `journalctl -u sddm -e` / Xem log: `journalctl -u sddm -e`
 
-### User / Session switching not working
+### Weather not showing / Không hiện thời tiết
 
-- The theme uses invisible `ListView` helpers (`userHelper`, `sessionHelper`) bound to SDDM's models (`userModel`, `sessionModel`)
-- Some older SDDM versions may not expose these models — upgrade SDDM to ≥ 0.20
-- Alternatively, check that your `/etc/sddm.conf` has `Relogin=true` so the session list populates
+- Internet must be available at the login screen / Cần có mạng tại màn hình đăng nhập
+- Check if APIs are reachable / Kiểm tra các API có truy cập được không
+- Some distros block network in SDDM — add firewall exceptions / Một số distro chặn mạng trong SDDM — cần thêm exception
 
-### Video has no audio (expected)
+### User / Session switching not working / Không chuyển được user/session
 
-The theme explicitly sets `volume: 0.0` and `muted: true`. Re-encode your video without an audio track to reduce file size.
+- The theme uses invisible `ListView` helpers bound to SDDM's models (`userModel`, `sessionModel`)
+- Theme dùng `ListView` ẩn kết nối với model của SDDM
+- Upgrade SDDM to ≥ 0.20 / Nâng cấp SDDM lên ≥ 0.20
+- Set `Relogin=true` in `/etc/sddm.conf` / Đặt `Relogin=true` trong `/etc/sddm.conf`
 
-## File Structure
+---
+
+## File Structure / Cấu trúc thư mục
 
 ```
 /usr/share/sddm/themes/selena/
-├── background.mp4        # Your background video (not included)
-├── Main.qml              # Main login theme script
-├── preview.qml           # Preview script for theme editors
-├── Metadata.desktop      # SDDM theme metadata
-├── theme.conf            # Empty config (reserved)
-├── Kuro_Games_Logo.png   # Kuro Games watermark logo
-└── logo pgr.png          # PGR / Wuthering Waves logo
+├── background.mp4        # Your video (not included) / Video của bạn (không có sẵn)
+├── Main.qml              # Main login script / Script đăng nhập chính
+├── preview.qml           # Preview script / Script xem trước
+├── Metadata.desktop      # SDDM metadata / Thông tin theme cho SDDM
+├── theme.conf            # Reserved config / Cấu hình dự phòng
+├── preview-login.png     # Preview image / Ảnh xem trước
+├── preview-password.png  # Preview image / Ảnh xem trước
+├── Kuro_Games_Logo.png   # Kuro Games watermark / Logo Kuro Games
+└── logo pgr.png          # PGR logo / Logo PGR
 ```
 
-## Credits
+---
 
-- **Tokyo Night** color palette by [enkia](https://github.com/enkia)
-- **Selena** character © Kuro Games (Punishing: Gray Raven)
-- **SDDM** — [Simple Desktop Display Manager](https://github.com/sddm/sddm)
-- **Weather data** — [Open-Meteo](https://open-meteo.com), [ip-api.com](http://ip-api.com)
+## Credits / Ghi công
 
-## License
+| English | Tiếng Việt |
+|---------|-----------|
+| Tokyo Night color palette by enkia | Bảng màu Tokyo Night bởi enkia |
+| Selena character © Kuro Games | Nhân vật Selena © Kuro Games |
+| SDDM — Simple Desktop Display Manager | SDDM — Trình quản lý màn hình đăng nhập |
+| Weather data by Open-Meteo, ip-api.com | Dữ liệu thời tiết từ Open-Meteo, ip-api.com |
+
+## License / Giấy phép
 
 MIT
