@@ -1,4 +1,4 @@
-import QtQuick
+import QtQuick 2.5
 
 Column {
     id: panel
@@ -35,7 +35,16 @@ Column {
             font.pointSize: 15 * scaleFactor
             echoMode: showPwItem.showPw ? TextInput.Normal : TextInput.Password
             focus: true
-            placeholderText: "Password"
+            property string phText: "Password"
+            Text {
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                anchors.leftMargin: parent.anchors.leftMargin
+                text: parent.phText
+                color: "#666666"
+                font: parent.font
+                visible: parent.text === "" && !parent.activeFocus
+            }
 
             Keys.onPressed: function(event) {
                 if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {

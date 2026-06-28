@@ -1,5 +1,5 @@
-import QtQuick
-import QtMultimedia
+import QtQuick 2.5
+import QtMultimedia 5.0
 import "components"
 
 Item {
@@ -17,19 +17,14 @@ Item {
         passwordPanel.passwordInput.text = ""
     }
 
-    MediaPlayer {
-        id: player
-        source: "background.mp4"
-        volume: 0.0; muted: true
-        loops: MediaPlayer.Loops.Infinite
-        autoPlay: true
-    }
-
-    VideoOutput {
+    Video {
         id: video
-        source: player
+        source: "background.mp4"
         anchors.fill: parent
-        fillMode: VideoOutput.PreserveAspectCrop
+        fillMode: 2
+        loops: -1
+        autoPlay: true
+        muted: true
     }
 
     Rectangle {
