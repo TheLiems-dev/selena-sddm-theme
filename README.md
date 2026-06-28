@@ -300,15 +300,20 @@ Ba API miễn phí, không cần key — định vị → thời tiết → AQI.
 
 ```
 /usr/share/sddm/themes/selena/
-├── background.mp4        # Your video (not included) / Video của bạn (không có sẵn)
-├── Main.qml              # Main login script / Script đăng nhập chính
-├── preview.qml           # Preview script / Script xem trước
-├── Metadata.desktop      # SDDM metadata / Thông tin theme cho SDDM
-├── theme.conf            # Reserved config / Cấu hình dự phòng
-├── preview-login.png     # Preview image / Ảnh xem trước
-├── preview-password.png  # Preview image / Ảnh xem trước
-├── Kuro_Games_Logo.png   # Kuro Games watermark / Logo Kuro Games
-└── logo pgr.png          # PGR logo / Logo PGR
+├── background.mp4            # Your video (not included) / Video của bạn (không có sẵn)
+├── Main.qml                  # Main login script / Script đăng nhập chính
+├── preview.qml               # Preview script / Script xem trước
+├── Metadata.desktop          # SDDM theme metadata / Metadata theme
+├── theme.conf                # Reserved config / Cấu hình dự phòng
+├── Kuro_Games_Logo.png       # Kuro Games watermark / Logo Kuro Games
+├── logo pgr.png              # PGR logo / Logo PGR
+├── preview-login.png         # Preview screenshot / Ảnh chụp màn hình
+├── preview-password.png      # Preview screenshot / Ảnh chụp màn hình
+└── components/               # Reusable QML components / Thành phần QML dùng chung
+    ├── InfoPanel.qml         # Clock & date display / Đồng hồ & ngày tháng
+    ├── PasswordPanel.qml     # Password input, show password, caps lock
+    ├── ActionButtons.qml     # User switch, session switch, power menu
+    └── WeatherService.qml    # Weather + AQI fetch logic (ip-api → Open-Meteo)
 ```
 
 ---
